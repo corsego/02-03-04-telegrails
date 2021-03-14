@@ -11,3 +11,28 @@
   <%= text_field_tag :content, nil, required: true %>
   <%= submit_tag "say hello" %>
 <% end %>
+
+<hr>
+
+<script async 
+  src="https://telegram.org/js/telegram-widget.js?14" 
+  data-telegram-login="telegrails_bot" 
+  data-size="large" 
+  data-auth-url="https://ad3f0369707e49e0a641afda0bd0d7ba.vfs.cloud9.eu-central-1.amazonaws.com/" 
+  data-request-access="write">
+</script>
+
+<hr>
+
+<%= params[:id] %>
+<br>
+<%= params[:first_name] %>
+<br>
+<%= params[:last_name] %>
+<br>
+<%= params[:username] %>
+<br>
+<%= params[:auth_date] %>
+<br>
+<%= params[:hash] %>
+
