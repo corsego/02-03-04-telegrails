@@ -21,4 +21,10 @@ class HomeController < ApplicationController
     redirect_to root_path, notice: "success"
   end
 
+  def send_hello
+    text = params[:content]
+    TelegramMailer.send_group_message(text).deliver_now
+    redirect_to root_path, notice: "success"
+  end
+
 end

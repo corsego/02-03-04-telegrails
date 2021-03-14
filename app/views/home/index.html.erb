@@ -4,3 +4,10 @@
 <%= link_to "Send private message", "https://api.telegram.org/bot1601291955:AAHTBAjaqigyYL_5Y70WVMglsnQ_EYPfwDk/sendMessage?chat_id=450462613&text=direct message", target: "_blank" %>
 
 <%= button_to "Send group message via controller", home_group_message_path %>
+
+<hr>
+
+<%= form_tag send_hello_path, method: :post do %>
+  <%= text_field_tag :content, nil, required: true %>
+  <%= submit_tag "say hello" %>
+<% end %>
