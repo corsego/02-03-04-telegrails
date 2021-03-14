@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <p></p>
     <%= notice %>
+    <p></p>
+    <%= session[:user_id] %>
+    <%= session[:username] %>
     <%= link_to "Home", root_path %>
     <%= link_to "Posts", posts_path %>
     <hr>
