@@ -2,3 +2,5 @@
 <p>Find me in app/views/home/index.html.erb</p>
 <%= link_to "Send group message", "https://api.telegram.org/bot1601291955:AAHTBAjaqigyYL_5Y70WVMglsnQ_EYPfwDk/sendMessage?chat_id=-572374068&text=group message", target: "_blank" %>
 <%= link_to "Send private message", "https://api.telegram.org/bot1601291955:AAHTBAjaqigyYL_5Y70WVMglsnQ_EYPfwDk/sendMessage?chat_id=450462613&text=direct message", target: "_blank" %>
+
+<%= button_to "Send group message via controller", home_group_message_path %>
