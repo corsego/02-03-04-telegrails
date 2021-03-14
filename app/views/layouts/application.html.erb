@@ -17,6 +17,9 @@
     <%= session[:username] %>
     <%= link_to "Home", root_path %>
     <%= link_to "Posts", posts_path %>
+    <% if session[:user_id].present? %>
+      <%= link_to "Log out", sessions_destroy_path, method: :delete %>
+    <% end %>
     <hr>
     <%= yield %>
   </body>
