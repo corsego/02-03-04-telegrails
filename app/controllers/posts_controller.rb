@@ -44,6 +44,8 @@ class PostsController < ApplicationController
         format.json { render :show, status: :ok, location: @post }
         text = "post updated"
         TelegramMailer.send_group_message(text).deliver_now
+        user = session[:user_id]
+        TelegramMailer.send_private_message(text, user).deliver_now
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
