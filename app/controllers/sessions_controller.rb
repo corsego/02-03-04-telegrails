@@ -1,4 +1,11 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user, only: [:new, :create]
+
+  def new
+    if session[:user_id].present?
+      redirect_to root_path, alert: "You are already signed in"
+    end
+  end
   
   def create
     fields = %w[auth_date first_name id last_name photo_url username]
@@ -10,7 +17,7 @@ class SessionsController < ApplicationController
       session[:username] = params[:username]
       redirect_to root_path, notice: "successful login via telegram"
     else
-      redirect_to root_path, notice: "LIAR"
+      redirect_to root_path, notice: "verification failed"
     end
   end
 

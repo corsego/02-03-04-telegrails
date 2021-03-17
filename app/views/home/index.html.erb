@@ -1,40 +1,9 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= link_to "Send group message", "https://api.telegram.org/bot1601291955:AAHTBAjaqigyYL_5Y70WVMglsnQ_EYPfwDk/sendMessage?chat_id=-572374068&text=group message", target: "_blank" %>
-<%= link_to "Send private message", "https://api.telegram.org/bot1601291955:AAHTBAjaqigyYL_5Y70WVMglsnQ_EYPfwDk/sendMessage?chat_id=450462613&text=direct message", target: "_blank" %>
-
-<%= button_to "Send group message via controller", home_group_message_path %>
-
+<%= link_to "Send private message", "https://api.telegram.org/bot#{TELEGRAM}/sendMessage?chat_id=#{session[:user_id]}&text=direct message", target: "_blank" %>
+<p>
+<%= button_to "Send private message via controller", home_send_message_path %>
 <hr>
-
 <%= form_tag send_hello_path, method: :post do %>
   <%= text_field_tag :content, nil, required: true %>
   <%= submit_tag "say hello" %>
 <% end %>
-
-<hr>
-
-<% if session[:user_id].nil? %>
-  <script async 
-    src="https://telegram.org/js/telegram-widget.js?14" 
-    data-telegram-login="telegrails_bot" 
-    data-size="large" 
-    data-auth-url="http://telegrails.herokuapp.com/sessions/create" 
-    data-request-access="write">
-  </script>
-<% end %>
-
-<hr>
-
-<%= params[:id] %>
-<br>
-<%= params[:first_name] %>
-<br>
-<%= params[:last_name] %>
-<br>
-<%= params[:username] %>
-<br>
-<%= params[:auth_date] %>
-<br>
-<%= params[:hash] %>
-

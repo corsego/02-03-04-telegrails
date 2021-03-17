@@ -33,6 +33,4 @@ class TelegramMailer < ApplicationMailer
     )
   end
 
-
-
 end

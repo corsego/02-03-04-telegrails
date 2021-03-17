@@ -11,16 +11,26 @@
   </head>
 
   <body>
-    <%= notice %>
-    <p></p>
-    <%= session[:user_id] %>
-    <%= session[:username] %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "Posts", posts_path %>
-    <% if session[:user_id].present? %>
-      <%= link_to "Log out", sessions_destroy_path, method: :delete %>
-    <% end %>
+    <center>
+      <h1>Telegram API app</h1>
+      <%= link_to "Source code", "https://github.com/corsego/telegrails", target: "_blank" %>
+    </center>
     <hr>
+    <p class="notice" style="background-color: green;"><%= notice %></p>
+    <p class="alert" style="background-color: red;"><%= alert %></p>
+    <% if session[:user_id].present? %>
+      <br>
+      <%= session[:user_id] %>
+      <br>
+      <%= session[:username] %>
+      <br>
+      <%= link_to "Home", root_path %>
+      <br>
+      <%= link_to "Posts", posts_path %>
+      <br>
+      <%= link_to "Log out", sessions_destroy_path, method: :delete %>
+      <hr>
+    <% end %>
     <%= yield %>
   </body>
 </html>
